@@ -1,0 +1,26 @@
+(function () {
+    'use strict';
+
+    angular
+        .module('app.$parentName$.$stateName$')
+        .controller('$controllerName$Ctrl', $controllerName$Ctrl);
+
+    $controllerName$Ctrl.$inject = ['$injectables$$log'];
+    function $controllerName$Ctrl ($injectables$$log) {
+        var vm = this;
+        vm.$firstMethodName$ = $firstMethodName$;
+
+        activate();
+
+
+        function activate() {
+            $log = $log.getInstance('$controllerName$');
+
+            $END$
+        }
+
+        function $firstMethodName$ () {
+
+        }
+    }
+})();

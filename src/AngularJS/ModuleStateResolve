@@ -1,0 +1,37 @@
+(function () {
+  'use strict';
+
+  angular
+    .module('app.$parentName$.$stateName$', [])
+    .config(stateConfig);
+
+  stateConfig.$inject = ['$stateProvider'];
+  function stateConfig ($stateProvider) {
+    $stateProvider.state({
+      name: 'root.authenticated.$parentName$.$stateName$',
+      url: '/$stateName$',
+      controller: '$controllerName$Ctrl',
+      controllerAs: 'vm',
+      reloadOnSearch: false,
+      templateUrl: 'components/$parentName$/$stateName$ /* replae '\.' -> '\/' */ /$stateName$.template.html',
+      data: {
+        title: '$title$'
+      },
+      resolve: {
+        $resolveName$: $resolveName$Resolve
+      }
+    });
+
+    $resolveName$Resolve.$inject = ['$log', '$modelName$', '$stateParams'];
+    function $resolveName$Resolve ($log, $modelName$, $stateParams) {
+      return $modelName$
+        .one('$requestName$')
+        .one($stateParams.id)
+        .get()
+        .catch(function (error) {
+            $log.error('State "app.$parentName$.$stateName$" :: resolve "$modelName$" failed. Details:', error);
+        return error;
+      });
+    }
+  }
+})();

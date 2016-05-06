@@ -1,0 +1,18 @@
+(function () {
+  'use strict';
+
+  angular
+    .module('app.global')
+    .factory('$modelName$', $modelName$);
+
+  TaskRects.$inject = ['Restangular', 'responseInterceptor'];
+  function $modelName$ (Restangular, responseInterceptor) {
+    var url = '$url$';
+    var resultsRegex = /.*\/$regexp$$/;
+    var model = Restangular.service(url);
+    Restangular.addResponseInterceptor(responseInterceptor.getListResponseInterceptor(url));
+    Restangular.addResponseInterceptor(responseInterceptor.getListResponseInterceptor(resultsRegex));
+
+    return model;
+  }
+})();

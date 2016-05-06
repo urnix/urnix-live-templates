@@ -1,0 +1,22 @@
+(function () {
+  'use strict';
+
+  angular
+    .module('app.$parentName$.$stateName$', [])
+    .config(stateConfig);
+
+  stateConfig.$inject = ['$stateProvider'];
+  function stateConfig ($stateProvider) {
+    $stateProvider.state({
+      name: 'root.authenticated.$parentName$.$stateName$',
+      url: '/$stateName$',
+      controller: '$controllerName$Ctrl',
+      controllerAs: 'vm',
+      reloadOnSearch: false,
+      templateUrl: 'components/$parentName$/$stateName$ /* replace . -> / */ /$stateName$.template.html',
+      data: {
+        title: '$title$'
+      }
+    });
+  }
+})();
